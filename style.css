@@ -1,0 +1,61 @@
+:root{--bg:#f2f4f3;--panel:#fff;--ink:#1d2a2a;--mute:#6b7a7a;--line:#dbe2e0;--accent:#0f5c5c;--accent-ink:#fff;--danger:#b3261e;--radius:10px}
+:root[data-theme="dark"]{--bg:#121a1a;--panel:#1a2525;--ink:#e6efee;--mute:#8fa3a1;--line:#2c3b3a;--accent:#4fc3b8;--accent-ink:#0b1414;--danger:#ff8a80}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Bricolage Grotesque",system-ui,sans-serif}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.app{max-width:1000px;margin:0 auto;padding:24px 16px 48px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+h1{margin:0;font-size:2.4rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.progress{flex:1;min-width:200px;max-width:340px}
+.progress small{color:var(--mute)}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.icon-btn{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:8px 12px}
+.layout{display:grid;grid-template-columns:240px 1fr;gap:20px}
+aside{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px;align-self:start}
+aside h2{font-size:.85rem;color:var(--mute);font-weight:600;margin:4px 8px 8px}
+.cat{display:flex;align-items:center;gap:8px;width:100%;border:0;background:none;text-align:left;padding:8px;border-radius:8px;border-left:4px solid transparent}
+.cat:hover{background:var(--bg)}
+.cat.on{background:var(--bg);font-weight:600;border-left-color:var(--c,var(--accent))}
+.cat .dot{width:10px;height:10px;border-radius:50%;background:var(--c,var(--mute));flex:none}
+.cat .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cat .n{color:var(--mute);font-size:.85rem}
+.cat-row{display:flex;align-items:center}
+.cat-row .x{border:0;background:none;color:var(--mute);padding:4px 8px}
+.cat-row .x:hover{color:var(--danger)}
+.new-cat{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.new-cat input[type=text]{flex:1;min-width:0}
+input[type=text],input[type=date],select{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+input[type=color]{width:38px;height:38px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.primary{background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:8px 16px;font-weight:600}
+form.add{display:grid;grid-template-columns:1fr auto auto auto auto;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin-bottom:12px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.toolbar input[type=text]{flex:1;min-width:140px}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--panel);padding:8px 12px}
+.seg button.on{background:var(--accent);color:var(--accent-ink)}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+li.task{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--c,var(--mute));border-radius:var(--radius);padding:10px 12px}
+li.task.done .title{text-decoration:line-through;color:var(--mute)}
+li.task input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent);flex:none}
+.body{flex:1;min-width:0}
+.title{word-break:break-word}
+.meta{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.82rem;color:var(--mute)}
+.meta .over{color:var(--danger);font-weight:600}
+.pri{font-weight:600}
+.pri.high{color:var(--danger)}
+.actions{display:flex;gap:4px}
+.actions button{border:1px solid var(--line);background:none;border-radius:8px;padding:4px 10px;font-size:.85rem}
+.actions .del:hover{color:var(--danger);border-color:var(--danger)}
+.edit{flex:1;width:100%}
+.empty{text-align:center;color:var(--mute);padding:40px 16px;background:var(--panel);border:1px dashed var(--line);border-radius:var(--radius)}
+.foot{display:flex;justify-content:space-between;margin-top:12px;color:var(--mute);font-size:.9rem}
+.foot button{border:0;background:none;color:var(--mute);text-decoration:underline}
+@media(max-width:760px){
+  .layout{grid-template-columns:1fr}
+  form.add{grid-template-columns:1fr 1fr}
+  form.add .t{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Category To-Do List</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>To-do list</h1>
+    <div class="progress"><small id="progText">0 of 0 done</small><div class="bar"><i id="progBar"></i></div></div>
+    <button class="icon-btn" id="theme" aria-label="Toggle dark mode">Dark mode</button>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <h2>Categories</h2>
+      <div id="cats"></div>
+      <form class="new-cat" id="catForm">
+        <input type="text" id="catName" placeholder="New category" maxlength="20" aria-label="New category name">
+        <input type="color" id="catColor" value="#6b46c1" aria-label="Category color">
+        <button class="primary" type="submit">Add</button>
+      </form>
+    </aside>
+
+    <main>
+      <form class="add" id="addForm">
+        <input class="t" type="text" id="title" placeholder="What needs doing?" maxlength="120" required aria-label="Task title">
+        <select id="cat" aria-label="Category"></select>
+        <select id="pri" aria-label="Priority">
+          <option value="1">Low</option>
+          <option value="2" selected>Medium</option>
+          <option value="3">High</option>
+        </select>
+        <input type="date" id="due" aria-label="Due date">
+        <button class="primary" type="submit">Add task</button>
+      </form>
+
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Search tasks" aria-label="Search tasks">
+        <div class="seg" id="status">
+          <button data-s="all" class="on">All</button>
+          <button data-s="active">Active</button>
+          <button data-s="done">Done</button>
+        </div>
+        <select id="sort" aria-label="Sort tasks">
+          <option value="created">Newest first</option>
+          <option value="due">Due date</option>
+          <option value="pri">Priority</option>
+          <option value="az">A to Z</option>
+        </select>
+      </div>
+
+      <ul id="list"></ul>
+      <div class="foot"><span id="count"></span><button id="clear">Clear completed</button></div>
+    </main>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
